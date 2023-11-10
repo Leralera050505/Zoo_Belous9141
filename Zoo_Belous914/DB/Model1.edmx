@@ -1,0 +1,1017 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище Zoo_Belouse_914BModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Animal">
+          <Key>
+            <PropertyRef Name="IdAnimal" />
+          </Key>
+          <Property Name="IdAnimal" Type="int" Nullable="false" />
+          <Property Name="NameAnimal" Type="nchar" MaxLength="10" />
+          <Property Name="IdTypeAnimsl" Type="int" />
+          <Property Name="IdAviary" Type="int" />
+        </EntityType>
+        <EntityType Name="AnimalProduct">
+          <Key>
+            <PropertyRef Name="IdProduct" />
+            <PropertyRef Name="IdAnimal" />
+          </Key>
+          <Property Name="IdProduct" Type="int" Nullable="false" />
+          <Property Name="IdAnimal" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Aviary">
+          <Key>
+            <PropertyRef Name="IdAviary" />
+          </Key>
+          <Property Name="IdAviary" Type="int" Nullable="false" />
+          <Property Name="NameAviary" Type="nchar" MaxLength="10" />
+          <Property Name="IdLocation" Type="int" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="IdClient" />
+          </Key>
+          <Property Name="IdClient" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Birthday" Type="date" Nullable="false" />
+          <Property Name="IdGender" Type="smallint" Nullable="false" />
+          <Property Name="IdUserPassword" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="IdGender" />
+          </Key>
+          <Property Name="IdGender" Type="smallint" Nullable="false" />
+          <Property Name="NameGender" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="IdLocation" />
+          </Key>
+          <Property Name="IdLocation" Type="int" Nullable="false" />
+          <Property Name="NameLocation" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Manufacturer">
+          <Key>
+            <PropertyRef Name="IdManufacturer" />
+          </Key>
+          <Property Name="IdManufacturer" Type="int" Nullable="false" />
+          <Property Name="NameManufactere" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="char" MaxLength="12" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="IdProduct" />
+          </Key>
+          <Property Name="IdProduct" Type="int" Nullable="false" />
+          <Property Name="Cost" Type="nchar" MaxLength="10" />
+          <Property Name="IdManufacturer" Type="int" />
+          <Property Name="NameProduct" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sale">
+          <Key>
+            <PropertyRef Name="IdSale" />
+          </Key>
+          <Property Name="IdSale" Type="int" Nullable="false" />
+          <Property Name="SaleDate" Type="datetime" />
+          <Property Name="IdClient" Type="int" Nullable="false" />
+          <Property Name="FullCost" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="SaleProduct">
+          <Key>
+            <PropertyRef Name="IdProduct" />
+            <PropertyRef Name="IdSale" />
+          </Key>
+          <Property Name="IdProduct" Type="int" Nullable="false" />
+          <Property Name="IdSale" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SaleTicket">
+          <Key>
+            <PropertyRef Name="IdTicket" />
+            <PropertyRef Name="IdSale" />
+          </Key>
+          <Property Name="IdTicket" Type="int" Nullable="false" />
+          <Property Name="IdSale" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ticket">
+          <Key>
+            <PropertyRef Name="IdTicket" />
+          </Key>
+          <Property Name="IdTicket" Type="int" Nullable="false" />
+          <Property Name="IdTypeTicket" Type="int" />
+          <Property Name="Date" Type="nchar" MaxLength="10" />
+          <Property Name="Cost" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Discount" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="TypeAnimal">
+          <Key>
+            <PropertyRef Name="IdTypeAnimal" />
+          </Key>
+          <Property Name="IdTypeAnimal" Type="int" Nullable="false" />
+          <Property Name="NameAnimal" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TypeTicket">
+          <Key>
+            <PropertyRef Name="IdTypeTicket" />
+          </Key>
+          <Property Name="IdTypeTicket" Type="int" Nullable="false" />
+          <Property Name="TitleTicket" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="UserPassword">
+          <Key>
+            <PropertyRef Name="IdUserPassword" />
+          </Key>
+          <Property Name="IdUserPassword" Type="int" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="150" />
+          <Property Name="Password" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Worker">
+          <Key>
+            <PropertyRef Name="IdWorker" />
+          </Key>
+          <Property Name="IdWorker" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="char" MaxLength="12" Nullable="false" />
+          <Property Name="Birthday" Type="date" Nullable="false" />
+          <Property Name="IdGender" Type="smallint" Nullable="false" />
+          <Property Name="IdUserPassword" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorkerAviary">
+          <Key>
+            <PropertyRef Name="IdWorker" />
+            <PropertyRef Name="IdAviary" />
+          </Key>
+          <Property Name="IdWorker" Type="int" Nullable="false" />
+          <Property Name="IdAviary" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Animal_Aviary">
+          <End Role="Aviary" Type="Self.Aviary" Multiplicity="0..1" />
+          <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aviary">
+              <PropertyRef Name="IdAviary" />
+            </Principal>
+            <Dependent Role="Animal">
+              <PropertyRef Name="IdAviary" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Animal_TypeAnimal">
+          <End Role="TypeAnimal" Type="Self.TypeAnimal" Multiplicity="0..1" />
+          <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeAnimal">
+              <PropertyRef Name="IdTypeAnimal" />
+            </Principal>
+            <Dependent Role="Animal">
+              <PropertyRef Name="IdTypeAnimsl" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AnimalProduct_Animal">
+          <End Role="Animal" Type="Self.Animal" Multiplicity="1" />
+          <End Role="AnimalProduct" Type="Self.AnimalProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animal">
+              <PropertyRef Name="IdAnimal" />
+            </Principal>
+            <Dependent Role="AnimalProduct">
+              <PropertyRef Name="IdAnimal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AnimalProduct_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="AnimalProduct" Type="Self.AnimalProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="IdProduct" />
+            </Principal>
+            <Dependent Role="AnimalProduct">
+              <PropertyRef Name="IdProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Aviary_Location">
+          <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
+          <End Role="Aviary" Type="Self.Aviary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="IdLocation" />
+            </Principal>
+            <Dependent Role="Aviary">
+              <PropertyRef Name="IdLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="IdGender" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="IdGender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_UserPassword">
+          <End Role="UserPassword" Type="Self.UserPassword" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserPassword">
+              <PropertyRef Name="IdUserPassword" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="IdUserPassword" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Manufacturer">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="IdManufacturer" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="IdManufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sale_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="IdClient" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaleProduct_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="SaleProduct" Type="Self.SaleProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="IdProduct" />
+            </Principal>
+            <Dependent Role="SaleProduct">
+              <PropertyRef Name="IdProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaleProduct_Sale">
+          <End Role="Sale" Type="Self.Sale" Multiplicity="1" />
+          <End Role="SaleProduct" Type="Self.SaleProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sale">
+              <PropertyRef Name="IdSale" />
+            </Principal>
+            <Dependent Role="SaleProduct">
+              <PropertyRef Name="IdSale" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaleTicket_Sale">
+          <End Role="Sale" Type="Self.Sale" Multiplicity="1" />
+          <End Role="SaleTicket" Type="Self.SaleTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sale">
+              <PropertyRef Name="IdSale" />
+            </Principal>
+            <Dependent Role="SaleTicket">
+              <PropertyRef Name="IdSale" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaleTicket_Ticket">
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="1" />
+          <End Role="SaleTicket" Type="Self.SaleTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ticket">
+              <PropertyRef Name="IdTicket" />
+            </Principal>
+            <Dependent Role="SaleTicket">
+              <PropertyRef Name="IdTicket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ticket_TypeTicket">
+          <End Role="TypeTicket" Type="Self.TypeTicket" Multiplicity="0..1" />
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeTicket">
+              <PropertyRef Name="IdTypeTicket" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="IdTypeTicket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Worker_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="IdGender" />
+            </Principal>
+            <Dependent Role="Worker">
+              <PropertyRef Name="IdGender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Worker_UserPassword">
+          <End Role="UserPassword" Type="Self.UserPassword" Multiplicity="1" />
+          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserPassword">
+              <PropertyRef Name="IdUserPassword" />
+            </Principal>
+            <Dependent Role="Worker">
+              <PropertyRef Name="IdUserPassword" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerAviary_Aviary">
+          <End Role="Aviary" Type="Self.Aviary" Multiplicity="1" />
+          <End Role="WorkerAviary" Type="Self.WorkerAviary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aviary">
+              <PropertyRef Name="IdAviary" />
+            </Principal>
+            <Dependent Role="WorkerAviary">
+              <PropertyRef Name="IdAviary" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkerAviary_Worker">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+          <End Role="WorkerAviary" Type="Self.WorkerAviary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="IdWorker" />
+            </Principal>
+            <Dependent Role="WorkerAviary">
+              <PropertyRef Name="IdWorker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище Zoo_Belouse_914BModelContainer">
+          <EntitySet Name="Animal" EntityType="Self.Animal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AnimalProduct" EntityType="Self.AnimalProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Aviary" EntityType="Self.Aviary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manufacturer" EntityType="Self.Manufacturer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sale" EntityType="Self.Sale" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SaleProduct" EntityType="Self.SaleProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SaleTicket" EntityType="Self.SaleTicket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeAnimal" EntityType="Self.TypeAnimal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeTicket" EntityType="Self.TypeTicket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserPassword" EntityType="Self.UserPassword" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Worker" EntityType="Self.Worker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkerAviary" EntityType="Self.WorkerAviary" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Animal_Aviary" Association="Self.FK_Animal_Aviary">
+            <End Role="Aviary" EntitySet="Aviary" />
+            <End Role="Animal" EntitySet="Animal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Animal_TypeAnimal" Association="Self.FK_Animal_TypeAnimal">
+            <End Role="TypeAnimal" EntitySet="TypeAnimal" />
+            <End Role="Animal" EntitySet="Animal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AnimalProduct_Animal" Association="Self.FK_AnimalProduct_Animal">
+            <End Role="Animal" EntitySet="Animal" />
+            <End Role="AnimalProduct" EntitySet="AnimalProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AnimalProduct_Product" Association="Self.FK_AnimalProduct_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="AnimalProduct" EntitySet="AnimalProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Aviary_Location" Association="Self.FK_Aviary_Location">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Aviary" EntitySet="Aviary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Gender" Association="Self.FK_Client_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_UserPassword" Association="Self.FK_Client_UserPassword">
+            <End Role="UserPassword" EntitySet="UserPassword" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Manufacturer" Association="Self.FK_Product_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturer" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Client" Association="Self.FK_Sale_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaleProduct_Product" Association="Self.FK_SaleProduct_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="SaleProduct" EntitySet="SaleProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaleProduct_Sale" Association="Self.FK_SaleProduct_Sale">
+            <End Role="Sale" EntitySet="Sale" />
+            <End Role="SaleProduct" EntitySet="SaleProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaleTicket_Sale" Association="Self.FK_SaleTicket_Sale">
+            <End Role="Sale" EntitySet="Sale" />
+            <End Role="SaleTicket" EntitySet="SaleTicket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaleTicket_Ticket" Association="Self.FK_SaleTicket_Ticket">
+            <End Role="Ticket" EntitySet="Ticket" />
+            <End Role="SaleTicket" EntitySet="SaleTicket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ticket_TypeTicket" Association="Self.FK_Ticket_TypeTicket">
+            <End Role="TypeTicket" EntitySet="TypeTicket" />
+            <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Worker_Gender" Association="Self.FK_Worker_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Worker" EntitySet="Worker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Worker_UserPassword" Association="Self.FK_Worker_UserPassword">
+            <End Role="UserPassword" EntitySet="UserPassword" />
+            <End Role="Worker" EntitySet="Worker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerAviary_Aviary" Association="Self.FK_WorkerAviary_Aviary">
+            <End Role="Aviary" EntitySet="Aviary" />
+            <End Role="WorkerAviary" EntitySet="WorkerAviary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkerAviary_Worker" Association="Self.FK_WorkerAviary_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="WorkerAviary" EntitySet="WorkerAviary" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Zoo_Belouse_914BModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Animal">
+          <Key>
+            <PropertyRef Name="IdAnimal" />
+          </Key>
+          <Property Name="IdAnimal" Type="Int32" Nullable="false" />
+          <Property Name="NameAnimal" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="IdTypeAnimsl" Type="Int32" />
+          <Property Name="IdAviary" Type="Int32" />
+          <NavigationProperty Name="Aviary" Relationship="Self.FK_Animal_Aviary" FromRole="Animal" ToRole="Aviary" />
+          <NavigationProperty Name="TypeAnimal" Relationship="Self.FK_Animal_TypeAnimal" FromRole="Animal" ToRole="TypeAnimal" />
+          <NavigationProperty Name="Product" Relationship="Self.AnimalProduct" FromRole="Animal" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Aviary">
+          <Key>
+            <PropertyRef Name="IdAviary" />
+          </Key>
+          <Property Name="IdAviary" Type="Int32" Nullable="false" />
+          <Property Name="NameAviary" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="IdLocation" Type="Int32" />
+          <NavigationProperty Name="Animal" Relationship="Self.FK_Animal_Aviary" FromRole="Aviary" ToRole="Animal" />
+          <NavigationProperty Name="Location" Relationship="Self.FK_Aviary_Location" FromRole="Aviary" ToRole="Location" />
+          <NavigationProperty Name="Worker" Relationship="Self.WorkerAviary" FromRole="Aviary" ToRole="Worker" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="IdClient" />
+          </Key>
+          <Property Name="IdClient" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IdGender" Type="Int16" Nullable="false" />
+          <Property Name="IdUserPassword" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Gender" Relationship="Self.FK_Client_Gender" FromRole="Client" ToRole="Gender" />
+          <NavigationProperty Name="UserPassword" Relationship="Self.FK_Client_UserPassword" FromRole="Client" ToRole="UserPassword" />
+          <NavigationProperty Name="Sale" Relationship="Self.FK_Sale_Client" FromRole="Client" ToRole="Sale" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="IdGender" />
+          </Key>
+          <Property Name="IdGender" Type="Int16" Nullable="false" />
+          <Property Name="NameGender" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Client_Gender" FromRole="Gender" ToRole="Client" />
+          <NavigationProperty Name="Worker" Relationship="Self.FK_Worker_Gender" FromRole="Gender" ToRole="Worker" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="IdLocation" />
+          </Key>
+          <Property Name="IdLocation" Type="Int32" Nullable="false" />
+          <Property Name="NameLocation" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Aviary" Relationship="Self.FK_Aviary_Location" FromRole="Location" ToRole="Aviary" />
+        </EntityType>
+        <EntityType Name="Manufacturer">
+          <Key>
+            <PropertyRef Name="IdManufacturer" />
+          </Key>
+          <Property Name="IdManufacturer" Type="Int32" Nullable="false" />
+          <Property Name="NameManufactere" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_Manufacturer" FromRole="Manufacturer" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="IdProduct" />
+          </Key>
+          <Property Name="IdProduct" Type="Int32" Nullable="false" />
+          <Property Name="Cost" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="IdManufacturer" Type="Int32" />
+          <Property Name="NameProduct" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Product_Manufacturer" FromRole="Product" ToRole="Manufacturer" />
+          <NavigationProperty Name="Animal" Relationship="Self.AnimalProduct" FromRole="Product" ToRole="Animal" />
+          <NavigationProperty Name="Sale" Relationship="Self.SaleProduct" FromRole="Product" ToRole="Sale" />
+        </EntityType>
+        <EntityType Name="Sale">
+          <Key>
+            <PropertyRef Name="IdSale" />
+          </Key>
+          <Property Name="IdSale" Type="Int32" Nullable="false" />
+          <Property Name="SaleDate" Type="DateTime" Precision="3" />
+          <Property Name="IdClient" Type="Int32" Nullable="false" />
+          <Property Name="FullCost" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Sale_Client" FromRole="Sale" ToRole="Client" />
+          <NavigationProperty Name="Product" Relationship="Self.SaleProduct" FromRole="Sale" ToRole="Product" />
+          <NavigationProperty Name="Ticket" Relationship="Self.SaleTicket" FromRole="Sale" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="Ticket">
+          <Key>
+            <PropertyRef Name="IdTicket" />
+          </Key>
+          <Property Name="IdTicket" Type="Int32" Nullable="false" />
+          <Property Name="IdTypeTicket" Type="Int32" />
+          <Property Name="Date" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Discount" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="TypeTicket" Relationship="Self.FK_Ticket_TypeTicket" FromRole="Ticket" ToRole="TypeTicket" />
+          <NavigationProperty Name="Sale" Relationship="Self.SaleTicket" FromRole="Ticket" ToRole="Sale" />
+        </EntityType>
+        <EntityType Name="TypeAnimal">
+          <Key>
+            <PropertyRef Name="IdTypeAnimal" />
+          </Key>
+          <Property Name="IdTypeAnimal" Type="Int32" Nullable="false" />
+          <Property Name="NameAnimal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Animal" Relationship="Self.FK_Animal_TypeAnimal" FromRole="TypeAnimal" ToRole="Animal" />
+        </EntityType>
+        <EntityType Name="TypeTicket">
+          <Key>
+            <PropertyRef Name="IdTypeTicket" />
+          </Key>
+          <Property Name="IdTypeTicket" Type="Int32" Nullable="false" />
+          <Property Name="TitleTicket" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ticket" Relationship="Self.FK_Ticket_TypeTicket" FromRole="TypeTicket" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="UserPassword">
+          <Key>
+            <PropertyRef Name="IdUserPassword" />
+          </Key>
+          <Property Name="IdUserPassword" Type="Int32" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Client_UserPassword" FromRole="UserPassword" ToRole="Client" />
+          <NavigationProperty Name="Worker" Relationship="Self.FK_Worker_UserPassword" FromRole="UserPassword" ToRole="Worker" />
+        </EntityType>
+        <EntityType Name="Worker">
+          <Key>
+            <PropertyRef Name="IdWorker" />
+          </Key>
+          <Property Name="IdWorker" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IdGender" Type="Int16" Nullable="false" />
+          <Property Name="IdUserPassword" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Gender" Relationship="Self.FK_Worker_Gender" FromRole="Worker" ToRole="Gender" />
+          <NavigationProperty Name="UserPassword" Relationship="Self.FK_Worker_UserPassword" FromRole="Worker" ToRole="UserPassword" />
+          <NavigationProperty Name="Aviary" Relationship="Self.WorkerAviary" FromRole="Worker" ToRole="Aviary" />
+        </EntityType>
+        <Association Name="FK_Animal_Aviary">
+          <End Role="Aviary" Type="Self.Aviary" Multiplicity="0..1" />
+          <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aviary">
+              <PropertyRef Name="IdAviary" />
+            </Principal>
+            <Dependent Role="Animal">
+              <PropertyRef Name="IdAviary" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Animal_TypeAnimal">
+          <End Role="TypeAnimal" Type="Self.TypeAnimal" Multiplicity="0..1" />
+          <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeAnimal">
+              <PropertyRef Name="IdTypeAnimal" />
+            </Principal>
+            <Dependent Role="Animal">
+              <PropertyRef Name="IdTypeAnimsl" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Aviary_Location">
+          <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
+          <End Role="Aviary" Type="Self.Aviary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="IdLocation" />
+            </Principal>
+            <Dependent Role="Aviary">
+              <PropertyRef Name="IdLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="IdGender" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="IdGender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_UserPassword">
+          <End Role="UserPassword" Type="Self.UserPassword" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserPassword">
+              <PropertyRef Name="IdUserPassword" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="IdUserPassword" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sale_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="IdClient" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Worker_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="IdGender" />
+            </Principal>
+            <Dependent Role="Worker">
+              <PropertyRef Name="IdGender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Manufacturer">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="IdManufacturer" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="IdManufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ticket_TypeTicket">
+          <End Role="TypeTicket" Type="Self.TypeTicket" Multiplicity="0..1" />
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeTicket">
+              <PropertyRef Name="IdTypeTicket" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="IdTypeTicket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Worker_UserPassword">
+          <End Role="UserPassword" Type="Self.UserPassword" Multiplicity="1" />
+          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserPassword">
+              <PropertyRef Name="IdUserPassword" />
+            </Principal>
+            <Dependent Role="Worker">
+              <PropertyRef Name="IdUserPassword" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AnimalProduct">
+          <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+        </Association>
+        <Association Name="SaleProduct">
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+        </Association>
+        <Association Name="SaleTicket">
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+        </Association>
+        <Association Name="WorkerAviary">
+          <End Role="Aviary" Type="Self.Aviary" Multiplicity="*" />
+          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Animal" EntityType="Self.Animal" />
+          <EntitySet Name="Aviary" EntityType="Self.Aviary" />
+          <EntitySet Name="Client" EntityType="Self.Client" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" />
+          <EntitySet Name="Location" EntityType="Self.Location" />
+          <EntitySet Name="Manufacturer" EntityType="Self.Manufacturer" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+          <EntitySet Name="Sale" EntityType="Self.Sale" />
+          <EntitySet Name="Ticket" EntityType="Self.Ticket" />
+          <EntitySet Name="TypeAnimal" EntityType="Self.TypeAnimal" />
+          <EntitySet Name="TypeTicket" EntityType="Self.TypeTicket" />
+          <EntitySet Name="UserPassword" EntityType="Self.UserPassword" />
+          <EntitySet Name="Worker" EntityType="Self.Worker" />
+          <AssociationSet Name="FK_Animal_Aviary" Association="Self.FK_Animal_Aviary">
+            <End Role="Aviary" EntitySet="Aviary" />
+            <End Role="Animal" EntitySet="Animal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Animal_TypeAnimal" Association="Self.FK_Animal_TypeAnimal">
+            <End Role="TypeAnimal" EntitySet="TypeAnimal" />
+            <End Role="Animal" EntitySet="Animal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Aviary_Location" Association="Self.FK_Aviary_Location">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Aviary" EntitySet="Aviary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Gender" Association="Self.FK_Client_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_UserPassword" Association="Self.FK_Client_UserPassword">
+            <End Role="UserPassword" EntitySet="UserPassword" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Client" Association="Self.FK_Sale_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Worker_Gender" Association="Self.FK_Worker_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Worker" EntitySet="Worker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Manufacturer" Association="Self.FK_Product_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturer" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ticket_TypeTicket" Association="Self.FK_Ticket_TypeTicket">
+            <End Role="TypeTicket" EntitySet="TypeTicket" />
+            <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Worker_UserPassword" Association="Self.FK_Worker_UserPassword">
+            <End Role="UserPassword" EntitySet="UserPassword" />
+            <End Role="Worker" EntitySet="Worker" />
+          </AssociationSet>
+          <AssociationSet Name="AnimalProduct" Association="Self.AnimalProduct">
+            <End Role="Animal" EntitySet="Animal" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="SaleProduct" Association="Self.SaleProduct">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="SaleTicket" Association="Self.SaleTicket">
+            <End Role="Sale" EntitySet="Sale" />
+            <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+          <AssociationSet Name="WorkerAviary" Association="Self.WorkerAviary">
+            <End Role="Aviary" EntitySet="Aviary" />
+            <End Role="Worker" EntitySet="Worker" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Zoo_Belouse_914BModelContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Animal">
+            <EntityTypeMapping TypeName="Zoo_Belouse_914BModel.Animal">
+              <MappingFragment StoreEntitySet="Animal">
+                <ScalarProperty Name="IdAnimal" ColumnName="IdAnimal" />
+                <ScalarProperty Name="NameAnimal" ColumnName="NameAnimal" />
+                <ScalarProperty Name="IdTypeAnimsl" ColumnName="IdTypeAnimsl" />
+                <ScalarProperty Name="IdAviary" ColumnName="IdAviary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Aviary">
+            <EntityTypeMapping TypeName="Zoo_Belouse_914BModel.Aviary">
+              <MappingFragment StoreEntitySet="Aviary">
+                <ScalarProperty Name="IdAviary" ColumnName="IdAviary" />
+                <ScalarProperty Name="NameAviary" ColumnName="NameAviary" />
+                <ScalarProperty Name="IdLocation" ColumnName="IdLocation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="Zoo_Belouse_914BModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="IdGender" ColumnName="IdGender" />
+                <ScalarProperty Name="IdUserPassword" ColumnName="IdUserPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gender">
+            <EntityTypeMapping TypeName="Zoo_Belouse_914BModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="IdGender" ColumnName="IdGender" />
+                <ScalarProperty Name="NameGender" ColumnName="NameGender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Location">
+            <EntityTypeMapping TypeName="Zoo_Belouse_914BModel.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="IdLocation" ColumnName="IdLocation" />
+                <ScalarProperty Name="NameLocation" ColumnName="NameLocation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manufacturer">
+            <EntityTypeMapping TypeName="Zoo_Belouse_914BModel.Manufacturer">
+              <MappingFragment StoreEntitySet="Manufacturer">
+                <ScalarProperty Name="IdManufacturer" ColumnName="IdManufacturer" />
+                <ScalarProperty Name="NameManufactere" ColumnName="NameManufactere" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="Zoo_Belouse_914BModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="IdManufacturer" ColumnName="IdManufacturer" />
+                <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sale">
+            <EntityTypeMapping TypeName="Zoo_Belouse_914BModel.Sale">
+              <MappingFragment StoreEntitySet="Sale">
+                <ScalarProperty Name="IdSale" ColumnName="IdSale" />
+                <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="FullCost" ColumnName="FullCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ticket">
+            <EntityTypeMapping TypeName="Zoo_Belouse_914BModel.Ticket">
+              <MappingFragment StoreEntitySet="Ticket">
+                <ScalarProperty Name="IdTicket" ColumnName="IdTicket" />
+                <ScalarProperty Name="IdTypeTicket" ColumnName="IdTypeTicket" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeAnimal">
+            <EntityTypeMapping TypeName="Zoo_Belouse_914BModel.TypeAnimal">
+              <MappingFragment StoreEntitySet="TypeAnimal">
+                <ScalarProperty Name="IdTypeAnimal" ColumnName="IdTypeAnimal" />
+                <ScalarProperty Name="NameAnimal" ColumnName="NameAnimal" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeTicket">
+            <EntityTypeMapping TypeName="Zoo_Belouse_914BModel.TypeTicket">
+              <MappingFragment StoreEntitySet="TypeTicket">
+                <ScalarProperty Name="IdTypeTicket" ColumnName="IdTypeTicket" />
+                <ScalarProperty Name="TitleTicket" ColumnName="TitleTicket" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserPassword">
+            <EntityTypeMapping TypeName="Zoo_Belouse_914BModel.UserPassword">
+              <MappingFragment StoreEntitySet="UserPassword">
+                <ScalarProperty Name="IdUserPassword" ColumnName="IdUserPassword" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Worker">
+            <EntityTypeMapping TypeName="Zoo_Belouse_914BModel.Worker">
+              <MappingFragment StoreEntitySet="Worker">
+                <ScalarProperty Name="IdWorker" ColumnName="IdWorker" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="IdGender" ColumnName="IdGender" />
+                <ScalarProperty Name="IdUserPassword" ColumnName="IdUserPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AnimalProduct" TypeName="Zoo_Belouse_914BModel.AnimalProduct" StoreEntitySet="AnimalProduct">
+            <EndProperty Name="Animal">
+              <ScalarProperty Name="IdAnimal" ColumnName="IdAnimal" />
+            </EndProperty>
+            <EndProperty Name="Product">
+              <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="SaleProduct" TypeName="Zoo_Belouse_914BModel.SaleProduct" StoreEntitySet="SaleProduct">
+            <EndProperty Name="Product">
+              <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
+            </EndProperty>
+            <EndProperty Name="Sale">
+              <ScalarProperty Name="IdSale" ColumnName="IdSale" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="SaleTicket" TypeName="Zoo_Belouse_914BModel.SaleTicket" StoreEntitySet="SaleTicket">
+            <EndProperty Name="Sale">
+              <ScalarProperty Name="IdSale" ColumnName="IdSale" />
+            </EndProperty>
+            <EndProperty Name="Ticket">
+              <ScalarProperty Name="IdTicket" ColumnName="IdTicket" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="WorkerAviary" TypeName="Zoo_Belouse_914BModel.WorkerAviary" StoreEntitySet="WorkerAviary">
+            <EndProperty Name="Aviary">
+              <ScalarProperty Name="IdAviary" ColumnName="IdAviary" />
+            </EndProperty>
+            <EndProperty Name="Worker">
+              <ScalarProperty Name="IdWorker" ColumnName="IdWorker" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,122 @@
+﻿<Window x:Class="Zoo_Belous914.Windows.RegClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zoo_Belous914.Windows"
+        mc:Ignorable="d"
+        Title="RegClientWindow" Height="750" Width="800">
+    <Grid Style="{StaticResource Btn}" >
+        <StackPanel>
+            <TextBlock
+                Text="Регистрация"
+                Margin="0 20 0 0"
+                 Foreground='White'
+                FontSize="30"
+                HorizontalAlignment="Center"
+               
+                />
+            <TextBlock
+                Text="Фамилия"
+                 Foreground='White'
+                Margin="120,30,400,0"
+                FontSize="24"
+                HorizontalAlignment="Center"
+                Width="116"
+                />
+            <TextBox x:Name="TbLastName" 
+                     Margin="0"
+                     Width="400"
+                     Height="40"
+                     FontSize="24"/>
+            <TextBlock
+                 Foreground='White'
+                Text="Имя"
+                Margin="120,0,400,0"
+                FontSize="24"
+                HorizontalAlignment="Center" Width="116"
+                />
+            <TextBox Margin="0"
+                     Width="400"
+                     Height="40"
+                     FontSize="24"
+                     x:Name="TbNAme"/>
+            <TextBlock
+                Text="Отчество"
+                 Foreground='White'
+                Margin="120,0,400,0"
+                FontSize="24"
+                HorizontalAlignment="Center" Width="116"
+                />
+            <TextBox 
+                x:Name="TbPatronymic"
+                Margin="0"
+                     Width="400"
+                     Height="40"
+                     FontSize="24"/>
+            <TextBlock
+                Text="Дата рождения"
+                 Foreground='White'
+                FontSize="24"
+                Margin="120,0,400,0"
+                />
+            <DatePicker x:Name="DPBirth"
+                        Width= "400"/>
+            <TextBlock
+                Text="Пол"
+                 Foreground='White'
+                FontSize="24"
+                Margin="120,0,400,0"
+                />
+            <ComboBox
+                 x:Name="CbGender"
+                      Margin="0"
+                     Width="400"
+                     Height="40"
+                     FontSize="24"
+                />
+            
+            <TextBlock
+                Text="Логин"
+                FontSize="24"
+                 Foreground='White'
+                Margin="120,0,400,0" 
+                />
+
+            <TextBox x:Name="TbLogin"
+                     Margin="0"
+                     Width="400"
+                     Height="40"
+                     FontSize="24"/>
+            <TextBlock
+                Text="Пароль"
+                 Foreground='White'
+                FontSize="24"
+                Margin="120,0,400,0" 
+                />
+
+            <TextBox x:Name="TbPassword"
+                     Margin="0"
+                     Width="400"
+                     Height="40"
+                     FontSize="24"/>
+            <Button x:Name="BtnAuth"
+                    Content="Зарегистрироваться"
+                    FontSize="30"
+                    Margin="100 30 100 0" />
+            <TextBlock
+                Text="Уже есть аккаунт? Зайти"
+              
+                FontSize="20"
+                x:Name="txtAuth"
+                 Foreground='White'
+                HorizontalAlignment="Center" 
+                MouseLeftButtonUp="txtAuth_MouseLeftButtonUp"
+                MouseEnter="txtAuth_MouseEnter" 
+                MouseLeave="txtAuth_MouseLeave" />
+
+        </StackPanel>
+
+
+    </Grid>
+</Window>

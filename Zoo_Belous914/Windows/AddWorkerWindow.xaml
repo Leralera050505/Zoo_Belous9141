@@ -1,0 +1,100 @@
+﻿<Window x:Class="Zoo_Belous914.Windows.AddWorkerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zoo_Belous914.Windows"
+        mc:Ignorable="d"
+        Title="AddWorkerWindow" Height="450" Width="800">
+    <Grid Style="{StaticResource Btn}">
+        <StackPanel>
+            <TextBlock Text="Добавление нового Работника"
+                     HorizontalAlignment="Center"
+                       Foreground="#dfdfe7"/>
+            <TextBlock Text="Имя"
+                       Foreground="#dfdfe7"
+                       HorizontalAlignment="Center"/>
+            <TextBox x:Name="TbFirstName"
+                     Width="300"
+                       HorizontalAlignment="Center"/>
+            <TextBlock Text="Фамилия"
+                       Foreground="#dfdfe7"
+                         HorizontalAlignment="Center"/>
+            <TextBox x:Name="TbLastName"
+                     Width="300"
+                       HorizontalAlignment="Center"/>
+            <TextBlock Text="Отчество"
+                       Foreground="#dfdfe7"
+                         HorizontalAlignment="Center"/>
+            <TextBox x:Name="TbPatronymic"
+                      Width="300"
+                       HorizontalAlignment="Center"/>
+            <TextBlock Text="Email"
+                       Foreground="#dfdfe7"
+                         HorizontalAlignment="Center"/>
+            <TextBox x:Name="TbEmail"
+                      Width="300"
+                       HorizontalAlignment="Center"/>
+            <TextBlock Text="Телефон"
+                       Foreground="#dfdfe7"
+                         HorizontalAlignment="Center"/>
+            <TextBox x:Name="TbPhone" 
+                       HorizontalAlignment="Center"
+                      Width="300"/>
+            <TextBlock Text="День рождения"
+                 Foreground="#dfdfe7"
+                   HorizontalAlignment="Center"/>
+            <DatePicker x:Name="DPDate" 
+                         Width="300"
+                        HorizontalAlignment="Center"/>
+            <TextBlock Text="Пол"
+       Foreground="#dfdfe7"
+         HorizontalAlignment="Center"/>
+            <ComboBox Name="cmbGender" 
+                       Width="300"
+                      HorizontalAlignment="Center"/>
+            
+            <TextBlock Text="Логин"
+                       Foreground="#dfdfe7"
+                       HorizontalAlignment="Center"/>
+            <TextBox x:Name="TbLogin"
+                     HorizontalAlignment="Center"
+                     Width="300"/>
+            <TextBlock Text="Пароль"
+                       Foreground="#dfdfe7"
+                       HorizontalAlignment="Center"/>
+            <TextBox x:Name="TbPassword" 
+                     Width="300"
+                     HorizontalAlignment="Center"/>
+            <Button x:Name="btnAddWorker"
+                Content="Добавить Работника" 
+                Width="200"
+                    Margin="10"
+                Height="30"
+                FontSize="20"
+                Background="#191938"
+                Foreground="#dfdfe7" 
+                Click="btnAddWorker_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="btnExit"
+                Content="Назад" 
+                Width="200"
+                Background="#191938"
+                Foreground="#dfdfe7" 
+                Height="30"
+                FontSize="20"
+                Click="btnExit_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

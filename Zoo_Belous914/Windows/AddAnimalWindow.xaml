@@ -1,0 +1,64 @@
+﻿<Window x:Class="Zoo_Belous914.Windows.AddAnimalWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zoo_Belous914.Windows"
+        mc:Ignorable="d"
+        Title="AddAnimalWindow" Height="450" Width="800">
+    <Grid Style="{StaticResource Btn}">
+        <StackPanel>
+            <TextBlock Text="Добавление нового животного"
+                     HorizontalAlignment="Center"
+                      FontSize ="25"
+                      Margin="20"
+                     Foreground="#dfdfe7"/>
+            <TextBlock Text="Название"
+             
+                     HorizontalAlignment="Center"
+                     Foreground="#dfdfe7"/>
+            <TextBox x:Name="TbAnimalName" 
+                   Width="300"/>
+            <TextBlock  HorizontalAlignment="Center"
+              Foreground="#dfdfe7"
+              Text="Тип"/>
+            <ComboBox x:Name="cmbTypeAnimal"
+                       Width="300"/>
+            <TextBlock Foreground="#dfdfe7"
+                      HorizontalAlignment="Center"
+                     Text="Вальер"/>
+            <ComboBox x:Name="cmbAviary"
+            Width="300"/>
+            
+            <Button x:Name="btnAddClient"
+                Content="Добавить Животное" 
+                Width="200"
+                Height="30"
+                FontSize="20"
+                 Margin="10"
+                Background="#191938"
+                Foreground="#dfdfe7" 
+                Click="btnAddClient_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="btnExit"
+                Content="Назад" 
+                Width="200"
+                Background="#191938"
+                Foreground="#dfdfe7" 
+                Height="30"
+                FontSize="20"
+                Click="btnExit_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

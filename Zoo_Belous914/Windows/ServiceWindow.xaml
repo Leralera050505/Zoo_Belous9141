@@ -1,0 +1,51 @@
+﻿<Window x:Class="Zoo_Belous914.Windows.ServiceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zoo_Belous914.Windows"
+        mc:Ignorable="d"
+        Title="ServiceWindow" Height="450" Width="800">
+    <Grid Style="{StaticResource Btn}">
+        <StackPanel>
+            <TextBlock Text="Купить билет"
+                       
+                    Foreground="#dfdfe7" 
+                       FontSize="30"
+                       HorizontalAlignment="Center"/>
+            <TextBlock Text=" Тип билета"
+                        FontSize="15"
+                    Foreground="#dfdfe7" 
+                       HorizontalAlignment="Center"/>
+            <ComboBox x:Name="CmbTypeTicket"
+                      Width="300"
+                      HorizontalAlignment="Center"/>
+            <TextBlock Text="Продукт" 
+                    Foreground="#dfdfe7" 
+                         FontSize="15"
+                       HorizontalAlignment="Center"/>
+            <ComboBox x:Name="CmbProduct"
+                         Width="300"
+                      HorizontalAlignment="Center"/>
+            <DatePicker Name="DateP"
+                         Width="300"
+                        HorizontalAlignment="Center"/>
+            <Button Content="Купить билет " 
+                    Margin="20"
+                    Height="30"
+                    Width="120"
+                    Background="#191938"
+                    Foreground="#dfdfe7" 
+                    HorizontalAlignment="Center"
+                    x:Name="btnAddService"
+                    Click="btnAddService_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+  
+    </Grid>
+</Window>

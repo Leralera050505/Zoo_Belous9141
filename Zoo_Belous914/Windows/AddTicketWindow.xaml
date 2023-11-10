@@ -1,0 +1,64 @@
+﻿<Window x:Class="Zoo_Belous914.Windows.AddTicketWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zoo_Belous914.Windows"
+        mc:Ignorable="d"
+        Title="AddTicketWindow" Height="450" Width="800">
+    <Grid Style="{StaticResource Btn}">
+        <StackPanel>
+            <TextBlock Text="Добавление нового билета"
+                HorizontalAlignment="Center"
+                 FontSize ="25"
+                 Margin="20"
+                Foreground="#dfdfe7"/>
+            
+            
+               
+
+            <TextBlock  HorizontalAlignment="Center"
+         Foreground="#dfdfe7"
+         Text="Тип билета"/>
+            <ComboBox x:Name="cmbTypeTicket"
+                  Width="300"/>
+
+            <TextBlock Foreground="#dfdfe7"
+                 HorizontalAlignment="Center"
+                Text="Цена"/>
+
+            <TextBox x:Name="TbFullCost"
+                    Width="300"/>
+
+            <Button x:Name="btnAddTicket"
+           Content="Добавить билет" 
+           Width="200"
+           Height="30"
+           FontSize="20"
+            Margin="10"
+           Background="#191938"
+           Foreground="#dfdfe7" 
+           Click="btnAddTicket_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="btnExit"
+           Content="Назад" 
+           Width="200"
+           Background="#191938"
+           Foreground="#dfdfe7" 
+           Height="30"
+           FontSize="20"
+           Click="btnExit_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

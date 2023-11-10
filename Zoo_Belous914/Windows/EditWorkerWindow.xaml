@@ -1,0 +1,160 @@
+﻿<Window x:Class="Zoo_Belous914.Windows.EditWorkerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zoo_Belous914.Windows"
+        mc:Ignorable="d"
+        Title="EditWorkerWindow" Height="600" Width="800">
+    <Grid Style="{StaticResource Btn}">
+        <StackPanel>
+            <TextBlock
+              
+                  Foreground="#dfdfe7"
+              Margin="0 10 0 0"
+              Text="Редактирование работника"
+              HorizontalAlignment="Center"
+              FontSize="24"/>
+
+            <TextBlock
+              
+                  Foreground="#dfdfe7"
+              Margin="0 15 0 0"
+              Text="Имя"
+              HorizontalAlignment="Center"
+              FontSize="15"
+              />
+            <TextBox
+              x:Name="TbFirstName"
+             Width="300"
+              Margin="0 0 0 0"
+              Height="20"/>
+            <TextBlock
+            
+                  Foreground="#dfdfe7"
+              Margin="0 10 0 0"
+              Text="Фамилия"
+              HorizontalAlignment="Center"
+              FontSize="15"/>
+            <TextBox
+              x:Name="TbLastName"
+           Width="300"
+              Margin="0 0 0 0"
+              Height="20"/>
+            <TextBlock
+             
+                  Foreground="#dfdfe7"
+              Margin="0 10 0 0"
+              Text="Отчество"
+              HorizontalAlignment="Center"
+              FontSize="15"/>
+            <TextBox
+              x:Name="TbPatronymic"
+               Width="300"
+              Margin="0 0 0 0"
+              Height="20"/>
+            <TextBlock
+  
+                  Foreground="#dfdfe7"
+             Margin="0 10 0 0"
+             Text="Mail"
+             HorizontalAlignment="Center"
+             FontSize="15"/>
+            <TextBox
+             x:Name="TbEmail"
+              Width="300"
+             Margin="0 0 0 0"
+             Height="20"/>
+            <TextBlock
+  
+                  Foreground="#dfdfe7"
+             Margin="0 10 0 0"
+             Text="Телефон"
+             HorizontalAlignment="Center"
+             FontSize="15"/>
+            <TextBox
+            x:Name="TbPhone"
+             Width="300"
+            Margin="0 0 0 0"
+            Height="20"/>
+            <DatePicker
+                 Name="DpDate"
+                 Margin="0 10 0 10"
+                 Width="300"/>
+            <TextBlock
+            Width="300"
+              Margin="0 10 0 0"
+              Text="Логин"
+               Foreground="#dfdfe7"
+              HorizontalAlignment="Center"
+              FontSize="15"/>
+            
+            <TextBox
+              x:Name="TbLogin"
+              Width="300"
+              Margin="0 0 0 0"
+              Height="20"/>
+            <TextBlock
+            
+              Margin="0 10 0 0"
+              Text="Пароль"
+                
+                  Foreground="#dfdfe7"
+              HorizontalAlignment="Center"
+              FontSize="15"/>
+            <TextBox
+              x:Name="TbPassword"
+              Width="300"
+              Margin="0 0 0 0"
+              Height="20"/>
+
+            <TextBlock
+             Width="300"
+              Margin="0 10 0 0"
+              Text="Пол"
+                
+                  Foreground="#dfdfe7"
+              HorizontalAlignment="Center"
+              FontSize="15"/>
+            <ComboBox
+              x:Name="CbGender"
+              Width="300"
+              
+              Margin="0 0 0 10"
+              Height="25"/>
+            <WrapPanel>
+                <Button
+              Margin="250 0 0 0"
+              Content="Назад"
+              FontSize="24"
+              Height="40"
+              Background="#191938"
+              Foreground="#dfdfe7" 
+              x:Name="btnExit" Click="btnExit_Click" >
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button
+              Margin="30 0 0 0"
+              Content="Редактировать"
+              Background="#191938"
+              Foreground="#dfdfe7" 
+              FontSize="24"
+              Height="40"
+              x:Name="btnEdit" Click="btnEdit_Click" >
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </WrapPanel>
+
+
+        </StackPanel>
+
+    </Grid>
+</Window>
